@@ -6,14 +6,15 @@ import { Navbar, Footer, Sidebar, ThemeSettings } from './components';
 import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
 import './App.css';
 import { useStateContext } from './contexts/ContextProvider';
+
 const App = () => {
   const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext();
-  
+
   useEffect(() => {
     const currentThemeColor = localStorage.getItem('colorMode');
-    const darkTheme=localStorage.getItem('darkTheme');
+    const darkTheme = localStorage.getItem('darkTheme');
     const currentThemeMode = localStorage.getItem('themeMode');
-    if(!currentThemeColor && currentThemeMode){
+    if (!currentThemeColor && currentThemeMode) {
       setCurrentColor(darkTheme);
       setCurrentMode(currentThemeMode);
     }
